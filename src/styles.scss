@@ -8,3 +8,20 @@
     --lightTextColor: #fff;
     --redColor: #fa2424;
 }
+
+:-webkit-scrollbar {
+    background: transparent;
+    height: 4px;
+    padding: 0;
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8b24f450;
+    border-radius: 2px;
+    height: 50px;
+    min-height: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #8b24f4;
+}

@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
+import  jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
+// import * as html2pdf from 'html2pdf.js';
 @Component({
   selector: 'app-template1',
   templateUrl: './template1.component.html',
   styleUrls: ['./template1.component.scss'],
 })
 export class Template1Component implements OnInit {
+  @ViewChild('pdfContent',{static:false}) pdfContent!:ElementRef;
   resumeForm!: FormGroup;
+
   constructor(private _fb: FormBuilder) {}
   ngOnInit(): void {
     this.resumeForm = this._fb.group({
@@ -69,4 +74,52 @@ export class Template1Component implements OnInit {
       award3:['']
     })
   }
+  generatePDF() {
+    const content = this.pdfContent.nativeElement;
+    const pdfWidth = 210; // A4 page width in mm
+    const pdfHeight = (content.offsetHeight * pdfWidth) / content.offsetWidth;
+    
+    // Remove padding and margins from the content
+    content.style.padding = '0';
+    content.style.margin = '0';
+    
+    html2canvas(content, { scale: 2 }) // Increase scale for higher DPI
+      .then(canvas => {
+        const contentDataURL = canvas.toDataURL('image/jpeg', 1.0); // Use JPEG for better quality
+//         const newTab = window.open();
+
+// newTab?.document.write(
+//     `<!DOCTYPE html><head><title>Document preview</title></head><body><img src="${contentDataURL}"  ></body></html>`);
+
+// newTab?.document.close();
+        // window.open(contentDataURL,'_blank')
+        const pdf = new jspdf('p', 'mm', 'a4');
+        const position = 0;
+    
+        pdf.addImage(contentDataURL, 'JPEG', 0, position, pdfWidth, pdfHeight);
+        pdf.save('sample.pdf');
+        
+        // Restore padding and margins if necessary
+        content.style.removeProperty('padding');
+        content.style.removeProperty('margin');
+      });
+  }
+
+  imageSrc:any;
+  uploadFile(event: Event) {
+    const element = event.currentTarget as HTMLInputElement;
+    let fileList: FileList | null = element.files;
+    if (fileList) {
+      let file = fileList[0];
+   
+      const reader = new FileReader();
+      reader.onload = (e) => (this.imageSrc = reader.result);
+      reader.readAsDataURL(file);
+
+      // this.renderer.setStyle(Elemen)
+      // console.log('FileUpload -> files', fileList);
+    }
+  }
+
+  
 }

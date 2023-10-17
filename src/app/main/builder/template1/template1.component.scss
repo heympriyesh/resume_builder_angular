@@ -1,6 +1,10 @@
 p {
   margin-bottom: 0;
 }
+.templateView{
+  height: 100%;
+  width: 100%;
+}
 
 .editform_module {
   &_main {
@@ -76,7 +80,8 @@ p {
         width: 40%;
 
         .contactItem,
-        .skillItem {
+        .skillItem,
+        .awardSection {
           align-items: baseline;
           display: flex;
           flex-direction: row;
@@ -92,6 +97,9 @@ p {
             width: auto;
 
             img {
+              height: 8px;
+            }
+            svg{
               height: 8px;
             }
           }
@@ -157,14 +165,35 @@ p {
             height: 50px;
             // opacity: 0;
           }
+          svg{
+            height: 50px;
+          }
         }
-
+        .pic_added{
+          background-color: transparent;
+          img{
+            height: 100%;
+            width: 100%;
+            border-radius: 100%;
+          }
+          p{
+            display: none!important;
+          }
+        }
         .contact_info_section,
-        .skill_summary_section {
+        .skill_summary_section,
+        .award_info_section {
           line-break: auto;
           margin: 30px 15px;
           max-width: 100%;
           position: relative;
+
+          ._award_p {
+            white-space: pre-wrap;
+            word-break: break-all;
+            color: #cbd3e0;
+            margin-left: 10px;
+          }
 
           .__buttonmain {
             align-items: center;
@@ -210,7 +239,6 @@ p {
           }
         }
 
-        .skill_summary_section {}
       }
 
       &_right {
@@ -224,3 +252,5 @@ p {
     }
   }
 }
+
+
