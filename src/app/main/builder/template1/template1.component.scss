@@ -1,0 +1,226 @@
+p {
+  margin-bottom: 0;
+}
+
+.editform_module {
+  &_main {
+    &__title {
+      color: var(--secondaryColor);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    &_outline {
+      background: none;
+      border: 2px dashed #00000029;
+      box-shadow: none;
+      height: 400px;
+      margin-top: 20px;
+      overflow: hidden;
+
+      &_innerText {
+        color: #000000cc;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 25% auto auto;
+        opacity: 0.2;
+        text-align: center;
+        width: 300px;
+      }
+    }
+  }
+}
+
+.templateView {
+
+  h3,
+  h4 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  p,
+  h5 {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  &_module {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 6px 15px #00000029;
+    height: 98%;
+    margin: 20px 10px;
+    max-height: 920px;
+    min-height: 842px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 1%;
+
+    &_main {
+      background-color: #325283;
+      display: flex;
+      flex-direction: row;
+      height: auto;
+      letter-spacing: 0.5px;
+      min-height: 100%;
+      width: 100%;
+
+      &_left {
+        background-color: #325283;
+        height: auto;
+        width: 40%;
+
+        .contactItem,
+        .skillItem {
+          align-items: baseline;
+          display: flex;
+          flex-direction: row;
+          margin: 10px 0 10px 2px;
+
+          ._icon,
+          .__skillDots_main {
+            align-items: flex-start;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            min-width: 20px;
+            width: auto;
+
+            img {
+              height: 8px;
+            }
+          }
+
+
+          span>p {
+            white-space: pre-wrap;
+            word-break: break-all;
+            color: #cbd3e0;
+            margin-left: 10px;
+          }
+
+          .dotLevel {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            justify-content: space-between;
+            width: 100%;
+          }
+
+          .single_dot {
+            background: #85aeecd3;
+            border-radius: 100%;
+            padding: 2px;
+
+            &[data-active=true] {
+              background: #f0f8ff;
+            }
+          }
+
+        }
+
+
+        ._picture {
+          align-items: center;
+          background: #85aeecd3;
+          border-radius: 100%;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          height: 140px;
+          justify-content: center;
+          margin: 30px auto;
+          width: 140px;
+          position: relative;
+
+          p {
+            color: #325283;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px
+          }
+
+          ._ {
+            opacity: 0;
+            height: 140px;
+            position: absolute;
+            width: 140px;
+          }
+
+          img {
+            height: 50px;
+            // opacity: 0;
+          }
+        }
+
+        .contact_info_section,
+        .skill_summary_section {
+          line-break: auto;
+          margin: 30px 15px;
+          max-width: 100%;
+          position: relative;
+
+          .__buttonmain {
+            align-items: center;
+            background-color: #fff;
+            border-radius: 3px;
+            display: flex;
+            flex-direction: row;
+            height: -webkit-fit-content;
+            height: -moz-fit-content;
+            height: fit-content;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
+            z-index: 10;
+
+            button {
+              align-items: center;
+              background-color: var(--primaryColor);
+              border: none;
+              border-radius: inherit;
+              display: flex;
+              flex-direction: column;
+              height: 20px;
+              justify-content: center;
+              margin: 1px;
+              opacity: 1;
+              padding: 0;
+              width: 20px;
+
+              img {
+                height: 10px;
+              }
+            }
+          }
+
+          h3 {
+            color: #f0f8ff;
+          }
+        }
+
+        .skill_summary_section {}
+      }
+
+      &_right {
+        background-color: #fff;
+        height: auto;
+        padding-bottom: 5px;
+        padding-left: 20px;
+        padding-right: 10px;
+        width: 60%;
+      }
+    }
+  }
+}
