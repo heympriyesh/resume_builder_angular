@@ -6,12 +6,12 @@ import { HomeComponent } from './main/home/home.component';
 const routes: Routes = [
   {
     path:'',
-    component:HomeComponent
-  },
-  {
-    path:'template1',
     component:Template1Component
-  }
+  },
+  // {
+  //   path:'template1',
+  //   component:Template1Component
+  // }
 ];
 
 @NgModule({

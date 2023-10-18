@@ -25,28 +25,37 @@ export class Template1Component implements OnInit, AfterViewInit {
   @ViewChild("pdfContent", { static: false }) pdfContent!: ElementRef;
   @ViewChild("noForm") noForm!: TemplateRef<any>;
   @ViewChild("contactInfoForm") contactInfoForm!: TemplateRef<any>;
-  @ViewChild("skillSummary") skillSummaryTemplae!: TemplateRef<any>;
+  @ViewChild("skillSummary") skillSummaryTemplate!: TemplateRef<any>;
+  @ViewChild('awardsReceived') awardsReceivedFormTemplate!: TemplateRef<any>;
+  @ViewChild('name_role') nameRoleTemplate!: TemplateRef<any>;
+  @ViewChild('description') descriptionTemplateRef!: TemplateRef<any>;
 
-  resumeForm!: FormGroup;
+  workExperienceForm!: FormGroup;
   contact_info!: FormGroup;
   skills_summary!: FormGroup;
+  awards_received!: FormGroup;
+  full_name = new FormControl('Priyesh Pandey');
+  job_role = new FormControl('Senior Software Engineer');
+  bio = new FormControl('A Python developer with 5.8 years of experience in Django, Flask for Retail eCommerce, POS and Storage domain.')
+
 
   selectedTemplate!: TemplateRef<any>;
 
-  constructor(private _fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder) { }
   ngOnInit(): void {
-    this.resumeForm = this._fb.group({
-      full_name: ["Priyesh Pandey"],
-      job_role: ["Senior Software Developer"],
-      personal_profile: [
-        "A Python developer with 5.8 years of experience in Django, Flask for Retail eCommerce, POS and Storage domain.",
-      ],
-      // contact_info: this.addContactInfo(),
-      // skills_summary: this.addSkillSummary(),
-      awards_received: this.addAwardsReceived(),
+    this.workExperienceForm = this._fb.group({
       work_experience: new FormArray([]),
     });
 
+    (this.workExperienceForm.get("work_experience") as FormArray).push(
+      this.addWorkExperience()
+    );
+   
+    this.initForm();
+    console.log("this.resumeBuilder", this.workExperienceForm.get('work_experience')?.value);
+  }
+
+  initForm() {
     this.contact_info = this._fb.group({
       address1: ["3205 Eden Drive, Glen Allen"],
       address2: [""],
@@ -66,11 +75,11 @@ export class Template1Component implements OnInit, AfterViewInit {
       skill4_rating: [4, [Validators.required]],
     });
 
-    (this.resumeForm.get("work_experience") as FormArray).push(
-      this.addWorkExperience()
-    );
-
-    console.log("this.resumeBuilder", this.resumeForm.value);
+    this.awards_received = this._fb.group({
+      award1: ["Most Outstanding Employee of the Year, Pixelpoint Hive (2015)"],
+      award2: ["Best Mobile App Design, HGFZ Graduate Center (2014)"],
+      award3: ["Design Award, Cliffmoor College (2012)"],
+    });
   }
 
   ngAfterViewInit(): void {
@@ -86,42 +95,34 @@ export class Template1Component implements OnInit, AfterViewInit {
     if (name === "contact_info") {
       this.selectedTemplate = this.contactInfoForm;
     } else if (name === "skills_summary") {
-      this.selectedTemplate = this.skillSummaryTemplae;
+      this.selectedTemplate = this.skillSummaryTemplate;
+    } else if (name === 'awards_received') {
+      this.selectedTemplate = this.awardsReceivedFormTemplate;
+    } else if (name === 'name_role') {
+      this.selectedTemplate = this.nameRoleTemplate;
+    } else if (name === 'description') {
+      this.selectedTemplate = this.descriptionTemplateRef;
     }
   }
 
-  addSkillSummary(): FormGroup {
-    return this._fb.group({
-      skill1: ["Python"],
-      skill1_rating: [4, [Validators.required]],
-      skill2: ["Python"],
-      skill2_rating: [4, [Validators.required]],
-      skill3: ["Python"],
-      skill3_rating: [4, [Validators.required]],
-      skill4: ["Python"],
-      skill4_rating: [4, [Validators.required]],
-    });
-  }
+
 
   addWorkExperience(): FormGroup {
     return this._fb.group({
-      title: [""],
-      org_name: [""],
-      role: [],
-      start_date: [""],
-      end_date: [null],
-      point1: [],
-      point2: [],
+      title: ["PROJECT"],
+      details: this._fb.group(({
+        org_name: ["Campus Events"],
+        role: ['ML Engineer'],
+        start_date: [""],
+        end_date: [null],
+        point1: [`Led the data ingestion efforts for our three person team which developed a real time tracker of campus events for universities in Pennsylvania`],
+        point2: [`Built web scraper in Python that got data from websites of campus groups then built an ETL which loaded data into Amazon Redshift`],
+      }))
+
     });
   }
 
-  addAwardsReceived() {
-    return this._fb.group({
-      award1: [""],
-      award2: [""],
-      award3: [""],
-    });
-  }
+  
   generatePDF() {
     const content = this.pdfContent.nativeElement;
     const pdfWidth = 210; // A4 page width in mm
@@ -140,13 +141,13 @@ export class Template1Component implements OnInit, AfterViewInit {
     html2canvas(content, { scale: 2 }) // Increase scale for higher DPI
       .then((canvas) => {
         const contentDataURL = canvas.toDataURL("image/jpeg", 1.0); // Use JPEG for better quality
-        const newTab = window.open();
+        // const newTab = window.open();
 
-        newTab?.document.write(
-          `<!DOCTYPE html><head><title>Document preview</title></head><body><img src="${contentDataURL}"  ></body></html>`
-        );
+        // newTab?.document.write(
+        //   `<!DOCTYPE html><head><title>Document preview</title></head><body><img src="${contentDataURL}"  ></body></html>`
+        // );
 
-        newTab?.document.close();
+        // newTab?.document.close();
         // window.open(contentDataURL,'_blank')
         const pdf = new jspdf("p", "mm", "a4");
         const position = 0;
@@ -172,7 +173,7 @@ export class Template1Component implements OnInit, AfterViewInit {
     }
   }
 
-  setSkillRating(rating:number,controlName:string){
+  setSkillRating(rating: number, controlName: string) {
     this.skills_summary.controls[controlName].setValue(rating)
   }
   getControl(formName: any, name: string): FormControl {
@@ -180,6 +181,8 @@ export class Template1Component implements OnInit, AfterViewInit {
       return this.contact_info.controls[name] as FormControl;
     } else if (formName === "skills_summary") {
       return this.skills_summary.controls[name] as FormControl;
+    } else if (formName === "awards_received") {
+      return this.awards_received.controls[name] as FormControl;
     } else {
       return this.contact_info.controls[name] as FormControl;
     }
