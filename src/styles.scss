@@ -9,6 +9,10 @@
     --redColor: #fa2424;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 :-webkit-scrollbar {
     background: transparent;
     height: 4px;

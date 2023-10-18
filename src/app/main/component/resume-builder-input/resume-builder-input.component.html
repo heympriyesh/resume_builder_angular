@@ -1,0 +1,12 @@
+
+<div class="form-group w-100">
+    <label [for]="id ? id :''"  class="label_resume_builder">{{ label ? label :'' }}</label>
+    <input
+      [type]="type ? type :'text'"
+      class="_input_box_form_control"
+      [id]="id ? id : ''"
+      [placeholder]="placeholder? placeholder : '--'"
+      [formControl]="control"
+    />
+  </div>
+  
