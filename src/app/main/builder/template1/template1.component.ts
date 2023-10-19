@@ -47,12 +47,11 @@ export class Template1Component implements OnInit, AfterViewInit {
       work_experience: new FormArray([]),
     });
 
-    (this.workExperienceForm.get("work_experience") as FormArray).push(
-      this.addWorkExperience()
-    );
-   
+
+
     this.initForm();
-    console.log("this.resumeBuilder", this.workExperienceForm.get('work_experience')?.value);
+    this.addWorkAndProjectExp();
+    // console.log("this.resumeBuilder", this.workExperienceForm.get('work_experience')?.value);
   }
 
   initForm() {
@@ -83,8 +82,7 @@ export class Template1Component implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.selectedTemplate = this.contactInfoForm;
-    // this.selectedTemplate=this.noForm
+    this.selectedTemplate = this.noForm;
   }
 
   discard() {
@@ -102,37 +100,59 @@ export class Template1Component implements OnInit, AfterViewInit {
       this.selectedTemplate = this.nameRoleTemplate;
     } else if (name === 'description') {
       this.selectedTemplate = this.descriptionTemplateRef;
+    } else if (name === 'work_exp') {
+
     }
   }
 
 
+  addWorkAndProjectExp() {
+    const workExperienceArray = this.workExperienceForm.get('work_experience') as FormArray;
+    workExperienceArray.push(this.addWorkExperience());
+    const lastIndex=(this.workExperienceForm.get('work_experience') as FormArray).length-1;
+    this.addDetailData(lastIndex);
+  }
 
   addWorkExperience(): FormGroup {
     return this._fb.group({
-      title: ["PROJECT"],
-      details: this._fb.group(({
-        org_name: ["Campus Events"],
-        role: ['ML Engineer'],
-        start_date: [""],
-        end_date: [null],
-        point1: [`Led the data ingestion efforts for our three person team which developed a real time tracker of campus events for universities in Pennsylvania`],
-        point2: [`Built web scraper in Python that got data from websites of campus groups then built an ETL which loaded data into Amazon Redshift`],
-      }))
+      title: 'PROJECT',
+      detail: this._fb.array([]), // Initialize the 'detail' as a FormArray
+    });
+  }
+  addDetailData(workExperienceIndex: number) {
+    const workExperienceArray = this.workExperienceForm.get('work_experience') as FormArray;
+    const detailArray = workExperienceArray.at(workExperienceIndex).get('detail') as FormArray;
+    detailArray.push(this.createDetailFormGroup());
 
+    console.log('form',this.workExperienceForm.value)
+  }
+
+  createDetailFormGroup(): FormGroup {
+    return this._fb.group({
+      org_name: ["Campus Events"],
+      role: ['ML Engineer'],
+      start_date: [""],
+      end_date: [null],
+      point1: [`Led the data ingestion efforts for our three person team which developed a real time tracker of campus events for universities in Pennsylvania`],
+      point2: [`Built web scraper in Python that got data from websites of campus groups then built an ETL which loaded data into Amazon Redshift`],
     });
   }
 
-  
+
+
+  removeaddWorkAndProjectExp(index: number) {
+    (this.workExperienceForm.get("work_experience") as FormArray).removeAt(index);
+  }
   generatePDF() {
     const content = this.pdfContent.nativeElement;
     const pdfWidth = 210; // A4 page width in mm
     const pdfHeight = (content.offsetHeight * pdfWidth) / content.offsetWidth;
     // const pdfHeight = content.offsetHeight *0.264583333;
 
-    console.log(
-      "🚀 ~ file: template1.component.ts:88 ~ Template1Component ~ generatePDF ~ pdfHeight:",
-      pdfHeight
-    );
+    // console.log(
+    //   "🚀 ~ file: template1.component.ts:88 ~ Template1Component ~ generatePDF ~ pdfHeight:",
+    //   pdfHeight
+    // );
 
     // Remove padding and margins from the content
     content.style.padding = "0";

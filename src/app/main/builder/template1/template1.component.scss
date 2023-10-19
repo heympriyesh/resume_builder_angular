@@ -42,13 +42,16 @@
   }
 }
 
-.__main_class{
+.__main_class {
 
   background-color: var(--secondaryBackgroundColor);
 }
 
 .editform_module {
   &_main {
+    display: flex;
+    justify-content: center;
+
     &__title {
       color: var(--secondaryColor);
       font-size: 1rem;
@@ -78,17 +81,20 @@
 }
 
 .templateView {
-  display:flex;
+  display: flex;
   justify-content: center;
+
   p {
     margin-bottom: 0;
   }
 
   height: 100%;
   width: 100%;
-.templateView_module{
-  max-width: 600px;
-}
+
+  .templateView_module {
+    max-width: 600px;
+  }
+
   .__buttonmain {
     align-items: center;
     background-color: #fff;
@@ -392,6 +398,12 @@
         .projects_work_exp {
           margin: 15px 0;
           position: relative;
+
+          .__loop_p_w_e {
+            margin: 15px 0;
+            position: relative;
+          }
+
           .delete_Button {
             align-items: center;
             background-color: var(--redColor);
@@ -405,9 +417,10 @@
             opacity: 1;
             padding: 0;
             width: 0px;
-           
-            
-            svg ,img{
+
+
+            svg,
+            img {
               height: 10px;
             }
           }
@@ -514,6 +527,7 @@
   padding: 5%;
   width: 90%;
   max-width: 600px;
+
   ._discard {
     border-radius: 4px;
     opacity: .6;

@@ -305,8 +305,8 @@
                     </button>
                   </div>
                 </div>
-                <h1>{{full_name?.value}}</h1><span class="hrLine"></span>
-                <h2>{{job_role?.value}}</h2>
+                <h1>{{full_name.value}}</h1><span class="hrLine"></span>
+                <h2>{{job_role.value}}</h2>
               </div>
               <div class="bioSection">
                 <div id="IGNORE_THIS_BLOCK_IN_PDF" style="display: block" data-html2canvas-ignore="true"
@@ -321,12 +321,12 @@
                 <p>{{bio?.value}}</p>
               </div>
               <div class="projects_work_exp">
-                <ng-container *ngFor="let data of workExperienceForm.get('work_experience')?.value;">
+                <!-- <ng-container *ngFor="let data of workExperienceForm.get('work_experience')?.value;let i=index;">
                   <div class="__loop_p_w_e">
                     <div id="IGNORE_THIS_BLOCK_IN_PDF" style="display: block;" data-html2canvas-ignore="true">
                       <div class="ActionButtons-module">
                         <span class="expansion">
-                          <button class="delete_Button">
+                          <button class="delete_Button" (click)="removeaddWorkAndProjectExp(i)">
                             <img src="/assets/icons/delete_icon.svg" />
                           </button>
                         </span>
@@ -351,9 +351,9 @@
                       </div>
                     </div>
                   </div>
-                </ng-container>
+                </ng-container> -->
               </div>
-              <div id="IGNORE_THIS_BLOCK_IN_PDF" style="display: block;" data-html2canvas-ignore="true"><button
+              <div id="IGNORE_THIS_BLOCK_IN_PDF" style="display: block;" data-html2canvas-ignore="true" (click)="addWorkAndProjectExp();"><button
                   class="add_Section"><span class="AddSectionButton-module--plus--3CS-p">+</span>&nbsp;Add
                   Section</button></div>
             </div>
@@ -513,6 +513,9 @@
     </div>
   </div>
 </ng-template>
+<!-- <ng-template #>
+
+</ng-template> -->
 <ng-template #noForm>
   <div class="editform_module_main__title">
     <p>Action Window</p>
