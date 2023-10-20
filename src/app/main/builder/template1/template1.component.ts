@@ -178,7 +178,7 @@ export class Template1Component implements OnInit, AfterViewInit {
         let position = 0;
 
         pdf.addImage(contentDataURL, "JPEG", 0, position, pdfWidth, pdfHeight);
-        pdf.save("sample.pdf");
+        pdf.save(`${this.full_name.value}.pdf`);
 
         // Restore padding and margins if necessary
         content.style.removeProperty("padding");
