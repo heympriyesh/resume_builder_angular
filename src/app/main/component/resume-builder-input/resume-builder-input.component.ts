@@ -18,6 +18,7 @@ export class ResumeBuilderInputComponent implements  OnInit {
   @Input()
   control!: FormControl; // For FormControl binding
   @Input() ngModelValue: any; // For ngModel binding
+  @Input() hintText!:string;
   ngOnInit() {
     // console.log("🚀 ~ file: resume-builder-input.component.ts:23 ~ ResumeBuilderInputComponent ~ ngOnInit ~ this.control:", this.control)
     if (this.control && this.ngModelValue) {

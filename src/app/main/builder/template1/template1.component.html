@@ -1,38 +1,75 @@
-<div class="container-fluid mt-2 __main_class">
-  <button (click)="generatePDF()">Generate PDF</button>
+<div class="_main_like_header">
+  <div style="width: 160px;">
+    <img src="/assets/icons/logo.png" style="width: 100%;height: 100%;"/>
+  </div>
+  <div>
+
+    <button (click)="generatePDF()" class="download_pdf">Download</button>
+  </div>
+</div>
+<div class="container-fluid pt-4 pb-4 __main_class">
   <div class="row">
     <div class="col-6">
       <div class="editform_module_main">
+        <div class="editform_module_main__title">
+          <p>Action Window</p>
+        </div>
         <ng-container [ngTemplateOutlet]="selectedTemplate"></ng-container>
       </div>
     </div>
     <div class="col-6">
       <div class="templateView">
+        <p class="_text">Template View</p>
         <div class="templateView_module">
           <div class="templateView_module_main" #pdfContent>
             <div class="templateView_module_main_left">
-              <div class="first_image_upload d-flex justify-content-center align-items-center">
-                <div class="_picture" (click)="imageUpload.click()" [ngClass]="{
+              <div
+                class="first_image_upload d-flex justify-content-center align-items-center"
+              >
+                <div
+                  class="_picture"
+                  (click)="imageUpload.click()"
+                  [ngClass]="{
                     pic_added: imageSrc
-                  }">
+                  }"
+                >
                   <img [src]="imageSrc" *ngIf="imageSrc" />
-                  <svg *ngIf="!imageSrc" aria-hidden="true" focusable="false" data-prefix="far"
-                    data-icon="arrow-alt-circle-up" class="svg-inline--fa fa-arrow-alt-circle-up fa-w-16 fa-2x"
-                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" color="#325283">
-                    <path fill="currentColor"
-                      d="M256 504c137 0 248-111 248-248S393 8 256 8 8 119 8 256s111 248 248 248zm0-448c110.5 0 200 89.5 200 200s-89.5 200-200 200S56 366.5 56 256 145.5 56 256 56zm20 328h-40c-6.6 0-12-5.4-12-12V256h-67c-10.7 0-16-12.9-8.5-20.5l99-99c4.7-4.7 12.3-4.7 17 0l99 99c7.6 7.6 2.2 20.5-8.5 20.5h-67v116c0 6.6-5.4 12-12 12z">
-                    </path>
+                  <svg
+                    *ngIf="!imageSrc"
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="far"
+                    data-icon="arrow-alt-circle-up"
+                    class="svg-inline--fa fa-arrow-alt-circle-up fa-w-16 fa-2x"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    color="#325283"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M256 504c137 0 248-111 248-248S393 8 256 8 8 119 8 256s111 248 248 248zm0-448c110.5 0 200 89.5 200 200s-89.5 200-200 200S56 366.5 56 256 145.5 56 256 56zm20 328h-40c-6.6 0-12-5.4-12-12V256h-67c-10.7 0-16-12.9-8.5-20.5l99-99c4.7-4.7 12.3-4.7 17 0l99 99c7.6 7.6 2.2 20.5-8.5 20.5h-67v116c0 6.6-5.4 12-12 12z"
+                    ></path>
                   </svg>
                   <!-- <img src="/assets/icons/upload_icons.svg" /> -->
                   <p>Upload Photo</p>
                   <div class="_">
-                    <input accept="image/*" type="file" #imageUpload (change)="uploadFile($event)" />
+                    <input
+                      accept="image/*"
+                      type="file"
+                      #imageUpload
+                      (change)="uploadFile($event)"
+                    />
                   </div>
                 </div>
               </div>
               <div class="contact_info_section">
-                <div id="IGNORE_THIS_BLOCK_IN_PDF" style="display: block" data-html2canvas-ignore="true"
-                  (click)="setTemplate('contact_info')">
+                <div
+                  id="IGNORE_THIS_BLOCK_IN_PDF"
+                  style="display: block"
+                  data-html2canvas-ignore="true"
+                  (click)="setTemplate('contact_info')"
+                >
                   <div class="__buttonmain">
                     <button class="EditButton-module--btn--3ATM7">
                       <img src="/assets/icons/edit_icon.svg" />
@@ -42,31 +79,54 @@
                 <h3>CONTACT INFO</h3>
                 <div class="contactItem">
                   <div class="_icon">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt"
-                      class="svg-inline--fa fa-map-marker-alt fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 384 512" color="#f0f8ff" style="font-size: 8px">
-                      <path fill="currentColor"
-                        d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z">
-                      </path>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="map-marker-alt"
+                      class="svg-inline--fa fa-map-marker-alt fa-w-12"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 384 512"
+                      color="#f0f8ff"
+                      style="font-size: 8px"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                      ></path>
                     </svg>
                   </div>
                   <span>
                     <p class="__p_text">
                       {{ contact_info.get("address1")?.value }}
                     </p>
-                    <p class="__p_text" *ngIf="contact_info.get('address2')?.value">
+                    <p
+                      class="__p_text"
+                      *ngIf="contact_info.get('address2')?.value"
+                    >
                       {{ contact_info.get("address2")?.value }}
                     </p>
                   </span>
                 </div>
                 <div class="contactItem">
                   <div class="_icon">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open"
-                      class="svg-inline--fa fa-envelope-open fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512" color="#f0f8ff" style="font-size: 8px">
-                      <path fill="currentColor"
-                        d="M512 464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V200.724a48 48 0 0 1 18.387-37.776c24.913-19.529 45.501-35.365 164.2-121.511C199.412 29.17 232.797-.347 256 .003c23.198-.354 56.596 29.172 73.413 41.433 118.687 86.137 139.303 101.995 164.2 121.512A48 48 0 0 1 512 200.724V464zm-65.666-196.605c-2.563-3.728-7.7-4.595-11.339-1.907-22.845 16.873-55.462 40.705-105.582 77.079-16.825 12.266-50.21 41.781-73.413 41.43-23.211.344-56.559-29.143-73.413-41.43-50.114-36.37-82.734-60.204-105.582-77.079-3.639-2.688-8.776-1.821-11.339 1.907l-9.072 13.196a7.998 7.998 0 0 0 1.839 10.967c22.887 16.899 55.454 40.69 105.303 76.868 20.274 14.781 56.524 47.813 92.264 47.573 35.724.242 71.961-32.771 92.263-47.573 49.85-36.179 82.418-59.97 105.303-76.868a7.998 7.998 0 0 0 1.839-10.967l-9.071-13.196z">
-                      </path>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="envelope-open"
+                      class="svg-inline--fa fa-envelope-open fa-w-16"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                      color="#f0f8ff"
+                      style="font-size: 8px"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M512 464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V200.724a48 48 0 0 1 18.387-37.776c24.913-19.529 45.501-35.365 164.2-121.511C199.412 29.17 232.797-.347 256 .003c23.198-.354 56.596 29.172 73.413 41.433 118.687 86.137 139.303 101.995 164.2 121.512A48 48 0 0 1 512 200.724V464zm-65.666-196.605c-2.563-3.728-7.7-4.595-11.339-1.907-22.845 16.873-55.462 40.705-105.582 77.079-16.825 12.266-50.21 41.781-73.413 41.43-23.211.344-56.559-29.143-73.413-41.43-50.114-36.37-82.734-60.204-105.582-77.079-3.639-2.688-8.776-1.821-11.339 1.907l-9.072 13.196a7.998 7.998 0 0 0 1.839 10.967c22.887 16.899 55.454 40.69 105.303 76.868 20.274 14.781 56.524 47.813 92.264 47.573 35.724.242 71.961-32.771 92.263-47.573 49.85-36.179 82.418-59.97 105.303-76.868a7.998 7.998 0 0 0 1.839-10.967l-9.071-13.196z"
+                      ></path>
                     </svg>
                   </div>
                   <span>
@@ -77,12 +137,22 @@
                 </div>
                 <div class="contactItem">
                   <div class="_icon">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone-alt"
-                      class="svg-inline--fa fa-phone-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512" color="#f0f8ff" style="font-size: 8px">
-                      <path fill="currentColor"
-                        d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z">
-                      </path>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="phone-alt"
+                      class="svg-inline--fa fa-phone-alt fa-w-16"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                      color="#f0f8ff"
+                      style="font-size: 8px"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"
+                      ></path>
                     </svg>
                   </div>
                   <span>
@@ -93,12 +163,22 @@
                 </div>
                 <div class="contactItem">
                   <div class="_icon">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link"
-                      class="svg-inline--fa fa-link fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512" color="#f0f8ff" style="font-size: 8px">
-                      <path fill="currentColor"
-                        d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z">
-                      </path>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="link"
+                      class="svg-inline--fa fa-link fa-w-16"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                      color="#f0f8ff"
+                      style="font-size: 8px"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"
+                      ></path>
                     </svg>
                   </div>
                   <span>
@@ -109,8 +189,12 @@
                 </div>
               </div>
               <div class="skill_summary_section">
-                <div id="IGNORE_THIS_BLOCK_IN_PDF" style="display: block" data-html2canvas-ignore="true"
-                  (click)="setTemplate('skills_summary')">
+                <div
+                  id="IGNORE_THIS_BLOCK_IN_PDF"
+                  style="display: block"
+                  data-html2canvas-ignore="true"
+                  (click)="setTemplate('skills_summary')"
+                >
                   <div class="__buttonmain">
                     <button class="EditButton-module--btn--3ATM7">
                       <img src="/assets/icons/edit_icon.svg" />
@@ -118,29 +202,45 @@
                   </div>
                 </div>
                 <h3>Skills Summary</h3>
-                <div class="skillItem" *ngIf="skills_summary.get('skill1')?.value">
+                <div
+                  class="skillItem"
+                  *ngIf="skills_summary.get('skill1')?.value"
+                >
                   <div class="__skillDots_main">
                     <div class="dotLevel">
-                      <span class="single_dot" [attr.data-active]="
-                          skills_summary.get('skill1_rating')?.value >=1
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill1_rating')?.value >= 1
                             ? true
                             : false
-                        "></span>
-                      <span class="single_dot" [attr.data-active]="
-                          skills_summary.get('skill1_rating')?.value>= 2
+                        "
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill1_rating')?.value >= 2
                             ? true
                             : false
-                        "></span>
-                      <span class="single_dot" [attr.data-active]="
-                          skills_summary.get('skill1_rating')?.value>= 3
+                        "
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill1_rating')?.value >= 3
                             ? true
                             : false
-                        " data-active="true"></span>
-                      <span class="single_dot" [attr.data-active]="
-                          skills_summary.get('skill1_rating')?.value>= 4
+                        "
+                        data-active="true"
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill1_rating')?.value >= 4
                             ? true
                             : false
-                        "></span>
+                        "
+                      ></span>
                     </div>
                   </div>
                   <span>
@@ -150,29 +250,45 @@
                   </span>
                 </div>
 
-                <div class="skillItem" *ngIf="skills_summary.get('skill2')?.value">
+                <div
+                  class="skillItem"
+                  *ngIf="skills_summary.get('skill2')?.value"
+                >
                   <div class="__skillDots_main">
                     <div class="dotLevel">
-                      <span class="single_dot" [attr.data-active]="
-                        skills_summary.get('skill2_rating')?.value >=1
-                          ? true
-                          : false
-                      "></span>
-                      <span class="single_dot" [attr.data-active]="
-                        skills_summary.get('skill2_rating')?.value>= 2
-                          ? true
-                          : false
-                      "></span>
-                      <span class="single_dot" [attr.data-active]="
-                        skills_summary.get('skill2_rating')?.value>= 3
-                          ? true
-                          : false
-                      " data-active="true"></span>
-                      <span class="single_dot" [attr.data-active]="
-                        skills_summary.get('skill2_rating')?.value>= 4
-                          ? true
-                          : false
-                      "></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill2_rating')?.value >= 1
+                            ? true
+                            : false
+                        "
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill2_rating')?.value >= 2
+                            ? true
+                            : false
+                        "
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill2_rating')?.value >= 3
+                            ? true
+                            : false
+                        "
+                        data-active="true"
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill2_rating')?.value >= 4
+                            ? true
+                            : false
+                        "
+                      ></span>
                     </div>
                   </div>
                   <span>
@@ -181,29 +297,45 @@
                     </p>
                   </span>
                 </div>
-                <div class="skillItem" *ngIf="skills_summary.get('skill3')?.value">
+                <div
+                  class="skillItem"
+                  *ngIf="skills_summary.get('skill3')?.value"
+                >
                   <div class="__skillDots_main">
                     <div class="dotLevel">
-                      <span class="single_dot" [attr.data-active]="
-                      skills_summary.get('skill3_rating')?.value >=1
-                        ? true
-                        : false
-                    "></span>
-                      <span class="single_dot" [attr.data-active]="
-                      skills_summary.get('skill3_rating')?.value>= 2
-                        ? true
-                        : false
-                    "></span>
-                      <span class="single_dot" [attr.data-active]="
-                      skills_summary.get('skill3_rating')?.value>= 3
-                        ? true
-                        : false
-                    " data-active="true"></span>
-                      <span class="single_dot" [attr.data-active]="
-                      skills_summary.get('skill3_rating')?.value>= 4
-                        ? true
-                        : false
-                    "></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill3_rating')?.value >= 1
+                            ? true
+                            : false
+                        "
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill3_rating')?.value >= 2
+                            ? true
+                            : false
+                        "
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill3_rating')?.value >= 3
+                            ? true
+                            : false
+                        "
+                        data-active="true"
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill3_rating')?.value >= 4
+                            ? true
+                            : false
+                        "
+                      ></span>
                     </div>
                   </div>
                   <span>
@@ -212,29 +344,45 @@
                     </p>
                   </span>
                 </div>
-                <div class="skillItem" *ngIf="skills_summary.get('skill4')?.value">
+                <div
+                  class="skillItem"
+                  *ngIf="skills_summary.get('skill4')?.value"
+                >
                   <div class="__skillDots_main">
                     <div class="dotLevel">
-                      <span class="single_dot" [attr.data-active]="
-                    skills_summary.get('skill4_rating')?.value >=1
-                      ? true
-                      : false
-                  "></span>
-                      <span class="single_dot" [attr.data-active]="
-                    skills_summary.get('skill4_rating')?.value>= 2
-                      ? true
-                      : false
-                  "></span>
-                      <span class="single_dot" [attr.data-active]="
-                    skills_summary.get('skill4_rating')?.value>= 3
-                      ? true
-                      : false
-                  " data-active="true"></span>
-                      <span class="single_dot" [attr.data-active]="
-                    skills_summary.get('skill4_rating')?.value>= 4
-                      ? true
-                      : false
-                  "></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill4_rating')?.value >= 1
+                            ? true
+                            : false
+                        "
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill4_rating')?.value >= 2
+                            ? true
+                            : false
+                        "
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill4_rating')?.value >= 3
+                            ? true
+                            : false
+                        "
+                        data-active="true"
+                      ></span>
+                      <span
+                        class="single_dot"
+                        [attr.data-active]="
+                          skills_summary.get('skill4_rating')?.value >= 4
+                            ? true
+                            : false
+                        "
+                      ></span>
                     </div>
                   </div>
                   <span>
@@ -245,8 +393,12 @@
                 </div>
               </div>
               <div class="award_info_section">
-                <div id="IGNORE_THIS_BLOCK_IN_PDF" style="display: block" data-html2canvas-ignore="true"
-                  (click)="setTemplate('awards_received')">
+                <div
+                  id="IGNORE_THIS_BLOCK_IN_PDF"
+                  style="display: block"
+                  data-html2canvas-ignore="true"
+                  (click)="setTemplate('awards_received')"
+                >
                   <div class="__buttonmain">
                     <button class="EditButton-module--btn--3ATM7">
                       <img src="/assets/icons/edit_icon.svg" />
@@ -254,63 +406,114 @@
                   </div>
                 </div>
                 <h3>Awards Received</h3>
-                <div class="awardSection" *ngIf="awards_received.get('award1')?.value">
+                <div
+                  class="awardSection"
+                  *ngIf="awards_received.get('award1')?.value"
+                >
                   <div class="_icon">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bookmark"
-                      class="svg-inline--fa fa-bookmark fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 384 512" color="#f0f8ff" style="font-size: 8px">
-                      <path fill="currentColor"
-                        d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"></path>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="bookmark"
+                      class="svg-inline--fa fa-bookmark fa-w-12"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 384 512"
+                      color="#f0f8ff"
+                      style="font-size: 8px"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"
+                      ></path>
                     </svg>
                   </div>
                   <p class="_award_p">
-                    {{awards_received.get('award1')?.value}}
+                    {{ awards_received.get("award1")?.value }}
                   </p>
                 </div>
-                <div class="awardSection " *ngIf="awards_received.get('award2')?.value">
+                <div
+                  class="awardSection"
+                  *ngIf="awards_received.get('award2')?.value"
+                >
                   <div class="_icon">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bookmark"
-                      class="svg-inline--fa fa-bookmark fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 384 512" color="#f0f8ff" style="font-size: 8px">
-                      <path fill="currentColor"
-                        d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"></path>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="bookmark"
+                      class="svg-inline--fa fa-bookmark fa-w-12"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 384 512"
+                      color="#f0f8ff"
+                      style="font-size: 8px"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"
+                      ></path>
                     </svg>
                   </div>
                   <p class="_award_p">
-                    {{awards_received.get('award2')?.value}}
+                    {{ awards_received.get("award2")?.value }}
                   </p>
                 </div>
-                <div class="awardSection" *ngIf="awards_received.get('award3')?.value">
+                <div
+                  class="awardSection"
+                  *ngIf="awards_received.get('award3')?.value"
+                >
                   <div class="_icon">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bookmark"
-                      class="svg-inline--fa fa-bookmark fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 384 512" color="#f0f8ff" style="font-size: 8px">
-                      <path fill="currentColor"
-                        d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"></path>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="bookmark"
+                      class="svg-inline--fa fa-bookmark fa-w-12"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 384 512"
+                      color="#f0f8ff"
+                      style="font-size: 8px"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"
+                      ></path>
                     </svg>
                   </div>
                   <p class="_award_p">
-                    {{awards_received.get('award3')?.value}}
+                    {{ awards_received.get("award3")?.value }}
                   </p>
                 </div>
               </div>
             </div>
             <div class="templateView_module_main_right">
               <div class="title_section">
-                <div id="IGNORE_THIS_BLOCK_IN_PDF" style="display: block" data-html2canvas-ignore="true"
-                  (click)="setTemplate('name_role')">
+                <div
+                  id="IGNORE_THIS_BLOCK_IN_PDF"
+                  style="display: block"
+                  data-html2canvas-ignore="true"
+                  (click)="setTemplate('name_role')"
+                >
                   <div class="__buttonmain">
                     <button class="EditButton-module--btn--3ATM7">
                       <img src="/assets/icons/edit_icon.svg" />
                     </button>
                   </div>
                 </div>
-                <h1>{{full_name.value}}</h1><span class="hrLine"></span>
-                <h2>{{job_role.value}}</h2>
+                <h1>{{ full_name.value }}</h1>
+                <span class="hrLine"></span>
+                <h2>{{ job_role.value }}</h2>
               </div>
               <div class="bioSection">
-                <div id="IGNORE_THIS_BLOCK_IN_PDF" style="display: block" data-html2canvas-ignore="true"
-                  (click)="setTemplate('description')">
+                <div
+                  id="IGNORE_THIS_BLOCK_IN_PDF"
+                  style="display: block"
+                  data-html2canvas-ignore="true"
+                  (click)="setTemplate('description')"
+                >
                   <div class="__buttonmain">
                     <button class="EditButton-module--btn--3ATM7">
                       <img src="/assets/icons/edit_icon.svg" />
@@ -318,44 +521,81 @@
                   </div>
                 </div>
                 <h3>PERSONAL PROFILE</h3>
-                <p>{{bio?.value}}</p>
+                <p>{{ bio.value }}</p>
               </div>
               <div class="projects_work_exp">
-                <!-- <ng-container *ngFor="let data of workExperienceForm.get('work_experience')?.value;let i=index;">
+                <ng-container
+                  *ngFor="
+                    let value of workExperienceControls?.value;
+                    let i = index
+                  "
+                >
                   <div class="__loop_p_w_e">
-                    <div id="IGNORE_THIS_BLOCK_IN_PDF" style="display: block;" data-html2canvas-ignore="true">
+                    <div
+                      id="IGNORE_THIS_BLOCK_IN_PDF"
+                      style="display: block"
+                      data-html2canvas-ignore="true"
+                    >
                       <div class="ActionButtons-module">
                         <span class="expansion">
-                          <button class="delete_Button" (click)="removeaddWorkAndProjectExp(i)">
+                          <button
+                            class="delete_Button"
+                            (click)="removeaddWorkAndProjectExp(i)"
+                          >
                             <img src="/assets/icons/delete_icon.svg" />
                           </button>
                         </span>
                         <div class="__buttonmain">
-                          <button class="EditButton-module--btn--3ATM7">
+                          <button
+                            class="EditButton-module--btn--3ATM7"
+                            (click)="setTemplate('work_exp',i)"
+                          >
                             <img src="/assets/icons/edit_icon.svg" />
                           </button>
                         </div>
                       </div>
                     </div>
-                    <h3>{{data.title}}</h3>
-                    <div class="Template-module--commonRightBlockItem--7lt9B">
-                      <h4>{{data['details'] && data['details'].org_name ?  data['details'].org_name:''}}</h4>
-                      <h5>{{data['details'] && data['details'].role ? data['details'] && data['details'].role :''}}| Apr 2019 - Present</h5>
-                      <div class="Template-module--point--8dpop" *ngIf="data['details'] && data['details'].point1">
+                    <h3>{{ value?.title }}</h3>
+                    <!-- <h3>{{data.title}}</h3> -->
+                    <div
+                      class="Template-module--commonRightBlockItem--7lt9B"
+                      *ngFor="let data of value.detail; let k = index"
+                    >
+                      <h4 *ngIf="data.org_name">
+                        {{ data.org_name ? data.org_name : "" }}
+                      </h4>
+                      <h5 *ngIf="data.role || data.start_date">
+                        {{ data.role ? data.role +' | ' : "" }}{{data.start_date? data.start_date:''}} - {{data.end_date?data.end_date:'Present'}}
+                      </h5>
+                      <div
+                        class="Template-module--point--8dpop"
+                        *ngIf="data.point1"
+                      >
                         <span class="Template-module--bullet--3WLrS"></span>
-                        <p >{{data['details'] && data['details'].point1?data['details'] && data['details'].point1 :''}}</p>
+                        <p>{{ data.point1 ? data.point1 : "" }}</p>
                       </div>
-                      <div class="Template-module--point--8dpop" *ngIf="data['details'] && data['details'].point2">
+                      <div
+                        class="Template-module--point--8dpop"
+                        *ngIf="data.point2"
+                      >
                         <span class="Template-module--bullet--3WLrS"></span>
-                        <p>{{data['details'] && data['details'].point2 ? data['details'] && data['details'].point2:''}}</p>
+                        <p>{{ data.point2 ? data.point2 : "" }}</p>
                       </div>
                     </div>
                   </div>
-                </ng-container> -->
+                </ng-container>
               </div>
-              <div id="IGNORE_THIS_BLOCK_IN_PDF" style="display: block;" data-html2canvas-ignore="true" (click)="addWorkAndProjectExp();"><button
-                  class="add_Section"><span class="AddSectionButton-module--plus--3CS-p">+</span>&nbsp;Add
-                  Section</button></div>
+              <div
+                id="IGNORE_THIS_BLOCK_IN_PDF"
+                style="display: block"
+                data-html2canvas-ignore="true"
+                (click)="addWorkAndProjectExp()"
+              >
+                <button class="add_Section">
+                  <span class="AddSectionButton-module--plus--3CS-p">+</span
+                  >&nbsp;Add Section
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -367,16 +607,41 @@
 <ng-template #contactInfoForm>
   <div class="parent_div_form">
     <form [formGroup]="contact_info">
-      <resume-builder-input [control]="getControl('contact_info', 'address1')" [type]="'text'" [id]="'address1'"
-        [placeholder]="'eg. 3205 Drive, Glen Allen'" [label]="'Address 1'"></resume-builder-input>
-      <resume-builder-input [control]="getControl('contact_info', 'address2')" [type]="'text'" [id]="'address2'"
-        [placeholder]="'eg. 3205 Drive, Glen Allen'" [label]="'Address 2'"></resume-builder-input>
-      <resume-builder-input [control]="getControl('contact_info', 'email')" [type]="'email'" [id]="'email'"
-        [placeholder]="'eg. oliviawil@email.net'" [label]="'Email'"></resume-builder-input>
-      <resume-builder-input [control]="getControl('contact_info', 'phone')" [type]="'text'" [id]="'phone'"
-        [placeholder]="'eg. 12345678'" [label]="'Phone'"></resume-builder-input>
-      <resume-builder-input [control]="getControl('contact_info', 'site_link')" [type]="'text'" [id]="'site_link'"
-        [placeholder]="'eg. github.com/oliwil'" [label]="'Personal Site or Github Link'"></resume-builder-input>
+      <resume-builder-input
+        [control]="getControl('contact_info', 'address1')"
+        [type]="'text'"
+        [id]="'address1'"
+        [placeholder]="'eg. 3205 Drive, Glen Allen'"
+        [label]="'Address 1'"
+      ></resume-builder-input>
+      <resume-builder-input
+        [control]="getControl('contact_info', 'address2')"
+        [type]="'text'"
+        [id]="'address2'"
+        [placeholder]="'eg. 3205 Drive, Glen Allen'"
+        [label]="'Address 2'"
+      ></resume-builder-input>
+      <resume-builder-input
+        [control]="getControl('contact_info', 'email')"
+        [type]="'email'"
+        [id]="'email'"
+        [placeholder]="'eg. oliviawil@email.net'"
+        [label]="'Email'"
+      ></resume-builder-input>
+      <resume-builder-input
+        [control]="getControl('contact_info', 'phone')"
+        [type]="'text'"
+        [id]="'phone'"
+        [placeholder]="'eg. 12345678'"
+        [label]="'Phone'"
+      ></resume-builder-input>
+      <resume-builder-input
+        [control]="getControl('contact_info', 'site_link')"
+        [type]="'text'"
+        [id]="'site_link'"
+        [placeholder]="'eg. github.com/oliwil'"
+        [label]="'Personal Site or Github Link'"
+      ></resume-builder-input>
     </form>
     <div class="d-flex w-100 justify-content-center">
       <button (click)="discard()" class="_discard">Discard</button>
@@ -388,81 +653,193 @@
   <div class="parent_div_form">
     <form [formGroup]="skills_summary">
       <div class="_skill1">
-        <resume-builder-input [control]="getControl('skills_summary', 'skill1')" [type]="'text'" [id]="'skill1'"
-          [placeholder]="'Project Management'" [label]="'Skill 1'"></resume-builder-input>
+        <resume-builder-input
+          [control]="getControl('skills_summary', 'skill1')"
+          [type]="'text'"
+          [id]="'skill1'"
+          [placeholder]="'Project Management'"
+          [label]="'Skill 1'"
+        ></resume-builder-input>
         <div class="inputRange_module">
-          <button class="InputRange_level" [attr.data-active]="
+          <button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill1_rating')?.value == 1 ? true : false
-            " role="1" (click)="setSkillRating(1, 'skill1_rating')">
-            1</button><button class="InputRange_level" [attr.data-active]="
+            "
+            role="1"
+            (click)="setSkillRating(1, 'skill1_rating')"
+          >
+            1</button
+          ><button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill1_rating')?.value == 2 ? true : false
-            " role="2" (click)="setSkillRating(2, 'skill1_rating')">
-            2</button><button class="InputRange_level" role="3" [attr.data-active]="
+            "
+            role="2"
+            (click)="setSkillRating(2, 'skill1_rating')"
+          >
+            2</button
+          ><button
+            class="InputRange_level"
+            role="3"
+            [attr.data-active]="
               skills_summary.get('skill1_rating')?.value == 3 ? true : false
-            " (click)="setSkillRating(3, 'skill1_rating')">
-            3</button><button class="InputRange_level" [attr.data-active]="
+            "
+            (click)="setSkillRating(3, 'skill1_rating')"
+          >
+            3</button
+          ><button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill1_rating')?.value == 4 ? true : false
-            " role="4" (click)="setSkillRating(4, 'skill1_rating')">
+            "
+            role="4"
+            (click)="setSkillRating(4, 'skill1_rating')"
+          >
             4
           </button>
         </div>
       </div>
       <div class="_skill2">
-        <resume-builder-input [control]="getControl('skills_summary', 'skill2')" [type]="'text'" [id]="'skill2'"
-          [placeholder]="'Project Management'" [label]="'Skill 2'"></resume-builder-input>
+        <resume-builder-input
+          [control]="getControl('skills_summary', 'skill2')"
+          [type]="'text'"
+          [id]="'skill2'"
+          [placeholder]="'Project Management'"
+          [label]="'Skill 2'"
+        ></resume-builder-input>
         <div class="inputRange_module">
-          <button class="InputRange_level" [attr.data-active]="
+          <button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill2_rating')?.value == 1 ? true : false
-            " role="1" (click)="setSkillRating(1, 'skill2_rating')">
-            1</button><button class="InputRange_level" [attr.data-active]="
+            "
+            role="1"
+            (click)="setSkillRating(1, 'skill2_rating')"
+          >
+            1</button
+          ><button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill2_rating')?.value == 2 ? true : false
-            " role="2" (click)="setSkillRating(2, 'skill2_rating')">
-            2</button><button class="InputRange_level" role="3" [attr.data-active]="
+            "
+            role="2"
+            (click)="setSkillRating(2, 'skill2_rating')"
+          >
+            2</button
+          ><button
+            class="InputRange_level"
+            role="3"
+            [attr.data-active]="
               skills_summary.get('skill2_rating')?.value == 3 ? true : false
-            " (click)="setSkillRating(3, 'skill2_rating')">
-            3</button><button class="InputRange_level" [attr.data-active]="
+            "
+            (click)="setSkillRating(3, 'skill2_rating')"
+          >
+            3</button
+          ><button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill2_rating')?.value == 4 ? true : false
-            " role="4" (click)="setSkillRating(4, 'skill2_rating')">
+            "
+            role="4"
+            (click)="setSkillRating(4, 'skill2_rating')"
+          >
             4
           </button>
         </div>
       </div>
       <div class="_skill3">
-        <resume-builder-input [control]="getControl('skills_summary', 'skill3')" [type]="'text'" [id]="'skill3'"
-          [placeholder]="'Project Management'" [label]="'Skill 3'"></resume-builder-input>
+        <resume-builder-input
+          [control]="getControl('skills_summary', 'skill3')"
+          [type]="'text'"
+          [id]="'skill3'"
+          [placeholder]="'Project Management'"
+          [label]="'Skill 3'"
+        ></resume-builder-input>
         <div class="inputRange_module">
-          <button class="InputRange_level" [attr.data-active]="
+          <button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill3_rating')?.value == 1 ? true : false
-            " role="1" (click)="setSkillRating(1, 'skill3_rating')">
-            1</button><button class="InputRange_level" [attr.data-active]="
+            "
+            role="1"
+            (click)="setSkillRating(1, 'skill3_rating')"
+          >
+            1</button
+          ><button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill3_rating')?.value == 2 ? true : false
-            " role="2" (click)="setSkillRating(2, 'skill3_rating')">
-            2</button><button class="InputRange_level" role="3" [attr.data-active]="
+            "
+            role="2"
+            (click)="setSkillRating(2, 'skill3_rating')"
+          >
+            2</button
+          ><button
+            class="InputRange_level"
+            role="3"
+            [attr.data-active]="
               skills_summary.get('skill3_rating')?.value == 3 ? true : false
-            " (click)="setSkillRating(3, 'skill3_rating')">
-            3</button><button class="InputRange_level" [attr.data-active]="
+            "
+            (click)="setSkillRating(3, 'skill3_rating')"
+          >
+            3</button
+          ><button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill3_rating')?.value == 4 ? true : false
-            " role="4" (click)="setSkillRating(4, 'skill3_rating')">
+            "
+            role="4"
+            (click)="setSkillRating(4, 'skill3_rating')"
+          >
             4
           </button>
         </div>
       </div>
       <div class="_skill4">
-        <resume-builder-input [control]="getControl('skills_summary', 'skill4')" [type]="'text'" [id]="'skill4'"
-          [placeholder]="'Project Management'" [label]="'Skill 4'"></resume-builder-input>
+        <resume-builder-input
+          [control]="getControl('skills_summary', 'skill4')"
+          [type]="'text'"
+          [id]="'skill4'"
+          [placeholder]="'Project Management'"
+          [label]="'Skill 4'"
+        ></resume-builder-input>
         <div class="inputRange_module">
-          <button class="InputRange_level" [attr.data-active]="
+          <button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill4_rating')?.value == 1 ? true : false
-            " role="1" (click)="setSkillRating(1, 'skill4_rating')">
-            1</button><button class="InputRange_level" [attr.data-active]="
+            "
+            role="1"
+            (click)="setSkillRating(1, 'skill4_rating')"
+          >
+            1</button
+          ><button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill4_rating')?.value == 2 ? true : false
-            " role="2" (click)="setSkillRating(2, 'skill4_rating')">
-            2</button><button class="InputRange_level" role="3" [attr.data-active]="
+            "
+            role="2"
+            (click)="setSkillRating(2, 'skill4_rating')"
+          >
+            2</button
+          ><button
+            class="InputRange_level"
+            role="3"
+            [attr.data-active]="
               skills_summary.get('skill4_rating')?.value == 3 ? true : false
-            " (click)="setSkillRating(3, 'skill4_rating')">
-            3</button><button class="InputRange_level" [attr.data-active]="
+            "
+            (click)="setSkillRating(3, 'skill4_rating')"
+          >
+            3</button
+          ><button
+            class="InputRange_level"
+            [attr.data-active]="
               skills_summary.get('skill4_rating')?.value == 4 ? true : false
-            " role="4" (click)="setSkillRating(4, 'skill4_rating')">
+            "
+            role="4"
+            (click)="setSkillRating(4, 'skill4_rating')"
+          >
             4
           </button>
         </div>
@@ -477,12 +854,27 @@
 <ng-template #awardsReceived>
   <div class="parent_div_form">
     <form [formGroup]="awards_received">
-      <resume-builder-input [control]="getControl('awards_received', 'award1')" [type]="'text'" [id]="'award1'"
-        [placeholder]="'eg. Best Mobile App Design'" [label]="'Award 1'"></resume-builder-input>
-      <resume-builder-input [control]="getControl('awards_received', 'award2')" [type]="'text'" [id]="'award2'"
-        [placeholder]="'eg. Best Mobile App Design'" [label]="'Award 2'"></resume-builder-input>
-      <resume-builder-input [control]="getControl('awards_received', 'award3')" [type]="'text'" [id]="'award3'"
-        [placeholder]="'eg. Best Mobile App Design'" [label]="'Award 3'"></resume-builder-input>
+      <resume-builder-input
+        [control]="getControl('awards_received', 'award1')"
+        [type]="'text'"
+        [id]="'award1'"
+        [placeholder]="'eg. Best Mobile App Design'"
+        [label]="'Award 1'"
+      ></resume-builder-input>
+      <resume-builder-input
+        [control]="getControl('awards_received', 'award2')"
+        [type]="'text'"
+        [id]="'award2'"
+        [placeholder]="'eg. Best Mobile App Design'"
+        [label]="'Award 2'"
+      ></resume-builder-input>
+      <resume-builder-input
+        [control]="getControl('awards_received', 'award3')"
+        [type]="'text'"
+        [id]="'award3'"
+        [placeholder]="'eg. Best Mobile App Design'"
+        [label]="'Award 3'"
+      ></resume-builder-input>
     </form>
     <div class="d-flex w-100 justify-content-center">
       <button (click)="discard()" class="_discard">Discard</button>
@@ -492,11 +884,23 @@
 
 <ng-template #name_role>
   <div class="parent_div_form">
-    <resume-builder-input [control]="full_name" [type]="'text'" [id]="'full_name'" [placeholder]="'eg. Priyesh Pandey'"
-      [label]="'Full Name'"></resume-builder-input>
-    <resume-builder-input [control]="job_role" [type]="'text'" [id]="'job_role'" [placeholder]="'eg. Developer'"
-      [label]="'Job Role
-      '"></resume-builder-input>
+    <resume-builder-input
+      [control]="full_name"
+      [type]="'text'"
+      [id]="'full_name'"
+      [placeholder]="'eg. Priyesh Pandey'"
+      [label]="'Full Name'"
+    ></resume-builder-input>
+    <resume-builder-input
+      [control]="job_role"
+      [type]="'text'"
+      [id]="'job_role'"
+      [placeholder]="'eg. Developer'"
+      [label]="
+        'Job Role
+      '
+      "
+    ></resume-builder-input>
 
     <div class="d-flex w-100 justify-content-center">
       <button (click)="discard()" class="_discard">Discard</button>
@@ -506,23 +910,113 @@
 
 <ng-template #description>
   <div class="parent_div_form">
-    <resume-builder-input [control]="bio" [type]="'text'" [id]="'bio'" [placeholder]="'eg. Priyesh Pandey'"
-      [label]="'Personal Profile'"></resume-builder-input>
+    <resume-builder-input
+      [control]="bio"
+      [type]="'text'"
+      [id]="'bio'"
+      [placeholder]="'eg. Priyesh Pandey'"
+      [label]="'Personal Profile'"
+    ></resume-builder-input>
     <div class="d-flex w-100 justify-content-center">
       <button (click)="discard()" class="_discard">Discard</button>
     </div>
   </div>
 </ng-template>
-<!-- <ng-template #>
 
-</ng-template> -->
-<ng-template #noForm>
-  <div class="editform_module_main__title">
-    <p>Action Window</p>
+<ng-template #workExperienceAndProject>
+  <div class="parent_div_form">
+    <form [formGroup]="workExperienceForm">
+      <div formArrayName="work_experience">
+        <div
+          *ngFor="let item of workExperienceControls.controls; let i = index"
+          [formGroupName]="i"
+        >
+        <ng-container *ngIf="selectedWorkAndProjectIndex===i">
+          <resume-builder-input
+            [control]="getControl('title', 'title', i)"
+            [type]="'text'"
+            [id]="'title'"
+            [placeholder]="'eg. Priyesh Pandey'"
+            [label]="'Title'"
+          ></resume-builder-input>
+          <!-- <br /> -->
+          <div formArrayName="detail">
+            <div
+              *ngFor="
+                let value of getDetailArrayAccordingToIndex(i).controls;
+                let k = index
+              "
+              [formGroupName]="k"
+            >
+              <div class="_detila_block_group">
+                <resume-builder-input
+                  [control]="getControl('detail', 'org_name', i, k)"
+                  [type]="'text'"
+                  [id]="'org_name' + k"
+                  [placeholder]="'eg. Westhon FGW'"
+                  [label]="'Organisation / University / Project Name'"
+                ></resume-builder-input>
+                <resume-builder-input
+                  [control]="getControl('detail', 'role', i, k)"
+                  [type]="'text'"
+                  [id]="'role' + k"
+                  [placeholder]="'eg. Westhon FGW'"
+                  [label]="'Role / Responsibility / Course'"
+                ></resume-builder-input>
+                <resume-builder-input
+                  [control]="getControl('detail', 'start_date', i, k)"
+                  [type]="'text'"
+                  [id]="'start_date' + k"
+                  [placeholder]="'eg. Westhon FGW'"
+                  [label]="'Start Date'"
+                ></resume-builder-input>
+                <resume-builder-input
+                  [control]="getControl('detail', 'end_date', i, k)"
+                  [type]="'text'"
+                  [id]="'end_date' + k"
+                  [placeholder]="'eg. Westhon FGW'"
+                  [label]="'End Date'"
+                  [hintText]="'Leave it blank to mark it as Present'"
+                ></resume-builder-input>
+                <resume-builder-input
+                  [control]="getControl('detail', 'point1', i, k)"
+                  [type]="'text'"
+                  [id]="'point1' + k"
+                  [placeholder]="'eg. Westhon FGW'"
+                  [label]="'Point 1'"
+                ></resume-builder-input>
+                <resume-builder-input
+                  [control]="getControl('detail', 'point2', i, k)"
+                  [type]="'text'"
+                  [id]="'point2' + k"
+                  [placeholder]="'eg. Westhon FGW'"
+                  [label]="'Point 2'"
+                ></resume-builder-input>
+                <button class="_delete_block" (click)="deleteDetailBlock(i,k)">Delete Block</button>
+              </div>
+              <!-- <button>Delete Block</button> -->
+            </div>
+          </div>
+          <button class="add_Section" (click)="addDetailData(i)">
+            <span >+</span
+              >&nbsp;Add Block
+          </button>
+        </ng-container>
+        </div>
+      </div>
+    </form>
+    <div class="d-flex w-100 justify-content-center">
+      <button (click)="discard()" class="_discard">Discard</button>
+    </div>
   </div>
-  <div class="editform_module_main_outline">
-    <div class="editform_module_main_outline_innerText">
-      <p>Click edit button of any block in the template.</p>
+</ng-template>
+
+<ng-template #noForm>
+  <div>
+    <div class="editform_module_main_outline" style="width: 450px;">
+      <div class="editform_module_main_outline_innerText">
+        <p>Click edit button of any block in the template.</p>
+      </div>
     </div>
   </div>
 </ng-template>
